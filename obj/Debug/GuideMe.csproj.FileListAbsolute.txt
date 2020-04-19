@@ -220,3 +220,4 @@ C:\Users\akg19\Desktop\mvc\GuideMe\obj\Debug\GuideMe.csproj.CopyComplete
 C:\Users\akg19\Desktop\mvc\GuideMe\obj\Debug\GuideMe.Migrations.CreateDB.resources
 C:\Users\akg19\Desktop\mvc\GuideMe\obj\Debug\GuideMe.csproj.GenerateResource.cache
 C:\Users\akg19\Desktop\mvc\GuideMe\obj\Debug\GuideMe.csprojAssemblyReference.cache
+C:\Users\akg19\Desktop\mvc\GuideMe\obj\Debug\GuideMe.Migrations.AddIMG.resources
