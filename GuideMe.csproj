@@ -179,6 +179,10 @@
     <Compile Include="Migrations\202004181241385_CreateDB.Designer.cs">
       <DependentUpon>202004181241385_CreateDB.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202004191914555_AddIMG.cs" />
+    <Compile Include="Migrations\202004191914555_AddIMG.Designer.cs">
+      <DependentUpon>202004191914555_AddIMG.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Business_models\Category.cs" />
     <Compile Include="Models\Business_models\City.cs" />
@@ -247,6 +251,7 @@
     <Content Include="img\core-img\icon-5.png" />
     <Content Include="img\core-img\logo.png" />
     <Content Include="img\core-img\map.png" />
+    <Content Include="img\Upload\1.jpg" />
     <Content Include="Scripts\active.js" />
     <Content Include="Scripts\bootstrap.bundle.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />
@@ -348,6 +353,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\202004181241385_CreateDB.resx">
       <DependentUpon>202004181241385_CreateDB.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202004191914555_AddIMG.resx">
+      <DependentUpon>202004191914555_AddIMG.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

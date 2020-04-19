@@ -15,5 +15,7 @@ namespace GuideMe.Models.Business_models
         public int ID { get; set; }
         [Required]
         public string Name { get; set; }
+        public string Img{ get; set; }
+        public ICollection<Place> Places { get; set; }
     }
 }

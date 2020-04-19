@@ -1,5 +1,6 @@
-﻿@using GuideMe.Models
+﻿@using GuideMe.Models.Identity_models
 @model LoginViewModel
+    
 @{
     ViewBag.Title = "Log in";
 }
@@ -53,7 +54,7 @@
     </div>
     <div class="col-md-4">
         <section id="socialLoginForm">
-            @Html.Partial("_ExternalLoginsListPartial", new ExternalLoginListViewModel { ReturnUrl = ViewBag.ReturnUrl })
+            @Html.Partial("_ExternalLoginsListPartial", new GuideMe.Models.Identity_models.ExternalLoginListViewModel { ReturnUrl = ViewBag.ReturnUrl })
         </section>
     </div>
 </div>
