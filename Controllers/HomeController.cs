@@ -1,4 +1,5 @@
-﻿using System;
+﻿using GuideMe.Models.Identity_models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -8,9 +9,24 @@ namespace GuideMe.Controllers
 {
     public class HomeController : Controller
     {
+        ApplicationDbContext ctx;
+
+        public HomeController()
+        {
+            ctx = new ApplicationDbContext();
+        }
         public ActionResult Index()
         {
+
             return View();
+        }
+
+
+        public ActionResult _cities() 
+        {
+            var cities = ctx.Cities.Include("Places").OrderByDescending(c=>c.Places.Count).ToList();
+            
+            return PartialView(cities);
         }
 
         public ActionResult About()
