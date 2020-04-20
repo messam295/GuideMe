@@ -329,3 +329,5 @@ F:\ITI Net fullstack developer\MVC\GuideMe\obj\Debug\GuideMe.csproj.CoreCompileI
 F:\ITI Net fullstack developer\MVC\GuideMe\obj\Debug\GuideMe.csproj.CopyComplete
 F:\ITI Net fullstack developer\MVC\GuideMe\obj\Debug\GuideMe.dll
 F:\ITI Net fullstack developer\MVC\GuideMe\obj\Debug\GuideMe.pdb
+F:\ITI Net fullstack developer\MVC\GuideMe\obj\Debug\GuideMe.Migrations.PlaceRateAdded.resources
+F:\ITI Net fullstack developer\MVC\GuideMe\obj\Debug\GuideMe.csproj.GenerateResource.cache

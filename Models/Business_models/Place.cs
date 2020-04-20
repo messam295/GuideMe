@@ -10,6 +10,8 @@ namespace GuideMe.Models.Business_models
 {
     public class Place
     {
+        private double rate;
+
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.None)]
         public int ID { get; set; }
@@ -19,8 +21,8 @@ namespace GuideMe.Models.Business_models
         [Index("IX_UniquePlace", 1, IsUnique = true)]
         public string Name { get; set; }
 
-        [ForeignKey("PlaceCategory")]
-        public int PlaceCategoryID { get; set; }
+        [ForeignKey("Category")]
+        public int CategoryID { get; set; }
 
         [ForeignKey("City")]
         public int CityID { get; set; }
@@ -29,11 +31,13 @@ namespace GuideMe.Models.Business_models
         [Index("IX_UniquePlace",2,IsUnique =true)]
         public string Address { get; set; }
 
-        public string GoogleLocation { get; set; } // gooel map Link
+        public string GoogleLocation { get; set; } // google map Link
 
         public string Image { get; set; }
 
-        public Category PlaceCategory { get; set; }
+        public Category Category { get; set; }
+        [Range(0, 10)]
+        public double Rate { get { return rate; } set { rate = value; } }
         public City City { get; set; }
 
         public ICollection<PlaceService> PlaceServices { get; set; }

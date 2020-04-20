@@ -58,11 +58,12 @@ namespace GuideMe
             //   appId: "",
             //   appSecret: "");
 
-            //app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions()
-            //{
-            //    ClientId = "",
-            //    ClientSecret = ""
-            //});
+            app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions()
+            {
+                ClientId = "899716406028-0gdq5f64e2tqcjkoalnokr348b13d7n3.apps.googleusercontent.com",
+                ClientSecret = "sldKlTwMGqAV2beDrkBfnIzg"
+            });
+            
         }
     }
 }
