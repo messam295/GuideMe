@@ -3,42 +3,126 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - My ASP.NET Application</title>
+    <title>@ViewBag.Title - GuideMe</title>
+    <link rel="icon" type="image/x-icon" href="http://www.iconarchive.com/download/i85581/graphicloads/100-flat/home.ico">
+    <link href="~/Content/site.css" rel="stylesheet" />
+    <link href="~/Content/responsive.css" rel="stylesheet" />
+    <link href="~/Content/font-awesome.min.css" rel="stylesheet" />
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
 
 </head>
 <body>
-    <div class="navbar navbar-inverse navbar-fixed-top">
+    <div id="preloader">
+        <div class="dorne-load"></div>
+    </div>
+
+    <!-- ***** Search Form Area ***** -->
+    <div class="dorne-search-form d-flex align-items-center">
         <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
-            </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                    <li>@Html.ActionLink("About", "About", "Home")</li>
-                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
-                </ul>
-                @Html.Partial("_LoginPartial")
+            <div class="row">
+                <div class="col-12">
+                    <div class="search-close-btn" id="closeBtn">
+                        <i class="pe-7s-close-circle" aria-hidden="true"></i>
+                    </div>
+                    <form action="#" method="get">
+                        <input type="search" name="caviarSearch" id="search" placeholder="Search Your Desire Destinations or Events">
+                        <input type="submit" class="d-none" value="submit">
+                    </form>
+                </div>
             </div>
         </div>
     </div>
-    <div class="container body-content">
-        @RenderBody()
-        <hr />
-        <footer>
-            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
-        </footer>
-    </div>
 
-    @Scripts.Render("~/bundles/jquery")
-    @Scripts.Render("~/bundles/bootstrap")
-    @RenderSection("scripts", required: false)
+    <!-- ***** Header Area Start ***** -->
+    <header class="header_area bg-img bg-overlay" id="header" style="background-image: url(img/bg-img/hero-1.jpg);">
+        <div class="container-fluid h-100">
+            <div class="row h-100">
+                <div class="col-12 h-100">
+                    <nav class="h-100 navbar navbar-expand-lg">
+                        @Html.ActionLink("GuideMe", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#dorneNav" aria-controls="dorneNav" aria-expanded="false" aria-label="Toggle navigation"><span class="fa fa-bars"></span></button>
+                        <!-- Nav -->
+                        <div class="collapse navbar-collapse" id="dorneNav">
+                            <ul class="navbar-nav mr-auto" id="dorneMenu">
+                                <li class="nav-item active">
+                                    <a class="nav-link" href="~/Home/Index">Home <span class="sr-only">(current)</span></a>
+                                </li>
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Explore <i class="fa fa-angle-down" aria-hidden="true"></i></a>
+                                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                        <a class="dropdown-item" href="index.html">Home</a>
+                                        <a class="dropdown-item" href="explore.html">Explore</a>
+                                        <a class="dropdown-item" href="listing.html">Listing</a>
+                                        <a class="dropdown-item" href="single-listing.html">Single Listing</a>
+                                        @*<a class="dropdown-item" href="~/Home/Contact">Contact</a>*@
+                                        <a class="nav-link" href="~/Home/Contact">Home <span class="sr-only">(current)</span></a>
+                                    </div>
+                                </li>
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown2" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Listings <i class="fa fa-angle-down" aria-hidden="true"></i></a>
+                                    <div class="dropdown-menu" aria-labelledby="navbarDropdown2">
+                                        <a class="dropdown-item" href="index.html">Home</a>
+                                        <a class="dropdown-item" href="explore.html">Explore</a>
+                                        <a class="dropdown-item" href="listing.html">Listing</a>
+                                        <a class="dropdown-item" href="single-listing.html">Single Listing</a>
+
+
+                                    </div>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="~/Home/Contact">Contact</a>
+                                </li>
+                            </ul>
+                            <!-- Search btn -->
+                            <div class="dorne-search-btn">
+                                <a id="search-btn" href="#"><i class="fa fa-search" aria-hidden="true"></i> Search</a>
+                            </div>
+                            <!-- Signin btn -->
+                            <div class="dorne-signin-btn">
+                                @Html.Partial("_LoginPartial")
+                            </div>
+                        </div>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- ***** Header Area End ***** -->    <!-- ***** Header Area End ***** -->
+
+    <div class="container-fluid body-content" style="padding-left:0px; padding-right:0px;">
+        @RenderBody()
+    </div>
+    <!-- ****** Footer Area Start ****** -->
+    <footer class="dorne-footer-area">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12 d-md-flex align-items-center justify-content-between">
+                    <div class="footer-text">
+                        <p>&copy; @DateTime.Now.Year - GuideMe</p>
+                    </div>
+                    <div class="footer-social-btns">
+                        <a href="#"><i class="fa fa-linkedin" aria-haspopup="true"></i></a>
+                        <a href="#"><i class="fa fa-behance" aria-hidden="true"></i></a>
+                        <a href="#"><i class="fa fa-dribbble" aria-hidden="true"></i></a>
+                        <a href="#"><i class="fa fa-twitter" aria-haspopup="true"></i></a>
+                        <a href="#"><i class="fa fa-facebook" aria-haspopup="true"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- ****** Footer Area End ****** -->
+
+
+
+    <script src="~/Scripts/jquery-2.2.4.min.js"></script>
+    <script src="~/Scripts/popper.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+    <script src="~/Scripts/plugins.js"></script>
+    <script src="~/Scripts/active.js"></script>
+    @*@Scripts.Render("~/bundles/jquery")
+        @Scripts.Render("~/bundles/bootstrap")*@
+    @*@RenderSection("scripts", required: false)*@
 </body>
 </html>
