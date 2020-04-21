@@ -1,5 +1,6 @@
 ﻿using GuideMe.Models.Business_models;
 using GuideMe.Models.Identity_models;
+using GuideMe.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,10 +19,27 @@ namespace GuideMe.Controllers
         }
         public ActionResult Index()
         {
-
-            return View();
+            ViewData["City"] = new SelectList(ctx.Cities.ToList(), "ID", "Name");
+            ViewData["Categories"] = new SelectList(ctx.Categories.ToList(), "ID", "Name");
+            CityCategoryVM vM = new CityCategoryVM();
+            return View(vM);
+        }
+        
+        public ActionResult GetFilterdPlaces(int CityId, int CategoryId, int PriceRange)
+        {
+            List<Place> places = ctx.Places.Where(p => p.CityID == CityId && p.CategoryID == CategoryId).ToList();
+            return View(places);
         }
 
+        [HttpPost]
+        public ActionResult GetFilterdPlaces(CityCategoryVM VM)
+        {
+            if (ModelState.IsValid)
+            {
+                return View(VM);
+            }
+            return RedirectToAction("Index");
+        }
 
         public ActionResult _cities() 
         {
