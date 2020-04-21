@@ -54,9 +54,9 @@ namespace GuideMe
             //   consumerKey: "",
             //   consumerSecret: "");
 
-            //app.UseFacebookAuthentication(
-            //   appId: "",
-            //   appSecret: "");
+            app.UseFacebookAuthentication(
+               appId: "678851209592741",
+               appSecret: "9ce0dc56f921e2f4951696c93122dd7c");
 
             app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions()
             {
