@@ -1,0 +1,26 @@
+﻿@model IEnumerable<GuideMe.Models.Business_models.Place>
+@{
+    ViewBag.Title = "GetFilterdPlaces";
+}
+<br /><br /><br /><br /><br /><br /><br /><br /><br />
+<h2>GetFilterdPlaces</h2>
+
+<table class="table table-hover">
+    <thead class="thead-dark">
+        <tr>
+            <th>Place Name</th>
+            <th>Place Adress</th>
+            <th>Place GoogleLocation</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var place in Model)
+        {
+        <tr>
+            <td>@place.Name</td>
+            <td>@place.Address</td>
+            <td>@place.GoogleLocation</td>
+        </tr>
+        }
+    </tbody>
+</table>
