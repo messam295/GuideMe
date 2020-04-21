@@ -10,7 +10,7 @@ namespace GuideMe.Models.Business_models
 {
     public class Place
     {
-        private double rate;
+        private double rate = 10;
 
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.None)]
