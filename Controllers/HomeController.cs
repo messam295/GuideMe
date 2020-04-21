@@ -1,4 +1,5 @@
-﻿using GuideMe.Models.Identity_models;
+﻿using GuideMe.Models.Business_models;
+using GuideMe.Models.Identity_models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -41,6 +42,12 @@ namespace GuideMe.Controllers
             ViewBag.Message = "Your contact page.";
 
             return View();
+        }
+
+        public ActionResult _allPlaces()
+        {
+            List<Place> places = ctx.Places.ToList();
+            return PartialView(places);
         }
     }
 }
