@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
@@ -30,7 +31,7 @@ namespace GuideMe.Models.Business_models
         [StringLength(100)]
         [Index("IX_UniquePlace",2,IsUnique =true)]
         public string Address { get; set; }
-
+        [DisplayName("Google location")]
         public string GoogleLocation { get; set; } // google map Link
 
         public string Image { get; set; }

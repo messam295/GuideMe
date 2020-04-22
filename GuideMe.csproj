@@ -170,6 +170,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\CitiesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\PlacesController.cs" />
@@ -179,6 +180,10 @@
     <Compile Include="Migrations\202004212157468_SeedingPlaces.cs" />
     <Compile Include="Migrations\202004212157468_SeedingPlaces.Designer.cs">
       <DependentUpon>202004212157468_SeedingPlaces.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202004220025254_addedImageFiletToCity.cs" />
+    <Compile Include="Migrations\202004220025254_addedImageFiletToCity.Designer.cs">
+      <DependentUpon>202004220025254_addedImageFiletToCity.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Business_models\Category.cs" />
@@ -251,7 +256,19 @@
     <Content Include="img\core-img\icon-5.png" />
     <Content Include="img\core-img\logo.png" />
     <Content Include="img\core-img\map.png" />
-    <Content Include="img\Upload\1.jpg" />
+    <Content Include="img\uploads\alex.jpg" />
+    <Content Include="img\uploads\aswan.jpg" />
+    <Content Include="img\uploads\cairo.jpg" />
+    <Content Include="img\uploads\elmoez.jpg" />
+    <Content Include="img\uploads\giza.jpg" />
+    <Content Include="img\uploads\hurghada.jpg" />
+    <Content Include="img\uploads\library.jpg" />
+    <Content Include="img\uploads\luxor.jpg" />
+    <Content Include="img\uploads\markato.jpg" />
+    <Content Include="img\uploads\minahouse.jpg" />
+    <Content Include="img\uploads\minia.jpg" />
+    <Content Include="img\uploads\qaitbay.jpg" />
+    <Content Include="img\uploads\sharm.jpg" />
     <Content Include="Scripts\active.js" />
     <Content Include="Scripts\bootstrap.bundle.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />
@@ -358,6 +375,11 @@
     <Content Include="Views\Places\Edit.cshtml" />
     <Content Include="Views\Places\Index.cshtml" />
     <Content Include="Views\Home\_allPlaces.cshtml" />
+    <Content Include="Views\Cities\Create.cshtml" />
+    <Content Include="Views\Cities\Delete.cshtml" />
+    <Content Include="Views\Cities\Details.cshtml" />
+    <Content Include="Views\Cities\Edit.cshtml" />
+    <Content Include="Views\Cities\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -374,6 +396,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\202004212157468_SeedingPlaces.resx">
       <DependentUpon>202004212157468_SeedingPlaces.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202004220025254_addedImageFiletToCity.resx">
+      <DependentUpon>202004220025254_addedImageFiletToCity.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
