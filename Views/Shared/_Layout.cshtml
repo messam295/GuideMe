@@ -14,8 +14,11 @@
 </head>
 <body>
     <div id="preloader">
-        <div class="dorne-load"></div>
-    </div>
+            <div class="dorne-load"></div>
+        </div>
+
+
+
 
     <!-- ***** Search Form Area ***** -->
     <div class="dorne-search-form d-flex align-items-center">
@@ -35,12 +38,14 @@
     </div>
 
     <!-- ***** Header Area Start ***** -->
-    <header class="header_area bg-img bg-overlay" id="header" style="background-image: url(img/bg-img/hero-1.jpg);">
+    <header class="header_area bg-img bg-overlay" id="header" style="background-image: url(img/bg-img/hero-1.jpg);font-family: 'akgfont'">
         <div class="container-fluid h-100">
             <div class="row h-100">
                 <div class="col-12 h-100">
                     <nav class="h-100 navbar navbar-expand-lg">
-                        @Html.ActionLink("GuideMe", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                        <p >
+                            @Html.ActionLink("GuideMe", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                        </p>
                         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#dorneNav" aria-controls="dorneNav" aria-expanded="false" aria-label="Toggle navigation"><span class="fa fa-bars"></span></button>
                         <!-- Nav -->
                         <div class="collapse navbar-collapse" id="dorneNav">
@@ -78,7 +83,7 @@
                                 <a id="search-btn" href="#"><i class="fa fa-search" aria-hidden="true"></i> Search</a>
                             </div>
                             <!-- Signin btn -->
-                            <div >
+                            <div>
                                 @Html.Partial("_LoginPartial")
                             </div>
                         </div>

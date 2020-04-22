@@ -19,13 +19,22 @@
 @import url('pe-icon-7-stroke.css');
 @import url('owl.carousel.min.css');
 
+
+@font-face {
+    font-family: 'akgfont';
+    src: url('../fonts/Al-Nahar.ttf') format('truetype');
+}
 /* Base CSS */
+
 
 * {
     margin: 0;
     padding: 0;
+    font-family: 'akgfont', sans-serif;
 }
+/*start*/
 
+/*End*/
 #preloader {
     overflow: hidden;
     background-color: rgba(52, 26, 121, 0.99);
@@ -79,7 +88,7 @@
 }
 
 body {
-    font-family: 'Open Sans', sans-serif;
+    font-family: 'akgfont', sans-serif;
 }
 
 h1,
@@ -956,8 +965,8 @@ li {
 /* Footer Area CSS */
 
 .dorne-footer-area {
-    padding: 50px 35px;
-    border-top: 1px solid #bec0cc;
+    padding: 50px 0px;
+    /*border-top: 1px solid #bec0cc;*/
 }
 
 .footer-text p {
