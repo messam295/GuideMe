@@ -31,15 +31,15 @@ namespace GuideMe.Controllers
             return View(places);
         }
 
-        [HttpPost]
-        public ActionResult GetFilterdPlaces(CityCategoryVM VM)
-        {
-            if (ModelState.IsValid)
-            {
-                return View(VM);
-            }
-            return RedirectToAction("Index");
-        }
+        //[HttpPost]
+        //public ActionResult GetFilterdPlaces(CityCategoryVM VM)
+        //{
+        //    if (ModelState.IsValid)
+        //    {
+        //        return View(VM);
+        //    }
+        //    return RedirectToAction("Index");
+        //}
 
         public ActionResult _cities() 
         {

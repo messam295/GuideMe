@@ -1,5 +1,5 @@
 ﻿@model IEnumerable<GuideMe.Models.Business_models.Place>
-
+@using System.Web;
 @{
     ViewBag.Title = "Places";
 }
@@ -9,7 +9,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-12">
-                    <div class="section-heading dark text-center">
+                    <div class="section-heading text-center">
                         <span></span>
                         <h4>Places</h4>
                     </div>
@@ -25,11 +25,11 @@
 
                             <div class="single-features-area mb-50">
 
-                                <img src="~/img/bg-img/feature-1.jpg" alt="">
+                                <img src="~/img/uploads/@item.Image" alt="@item.Name">
                                 <!-- Rating & Map Area -->
                                 <div class="ratings-map-area d-flex">
                                     <a href="#"> @Html.DisplayFor(modelItem => item.Category.Name)</a>
-                                    <a href="#myModal" data-toggle="modal"><img src="~/img/core-img/map.png" alt=""></a>
+                                    <a href="#" data-toggle="modal" data-target="#myModal_@item.ID"><img src="~/img/core-img/map.png" alt="@item.Name Location" title="@item.Name location"></a>
                                 </div>
                                 <div class="feature-content d-flex align-items-center justify-content-between">
                                     <div class="feature-title">
@@ -44,21 +44,24 @@
 
                         </div>
                         <!-- The Modal -->
-                        <div class="modal" id="myModal">
+                        <div class="modal" id="myModal_@item.ID">
                             <div class="modal-dialog">
                                 <div class="modal-content">
                                     <div style="height:50px"></div>
                                     <!-- Modal Header -->
                                     <div class="modal-header">
-                                        <h4 class="modal-title"> @Html.DisplayFor(modelItem => item.Name)</h4>
-                                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                        <h4 class="modal-title"> @Html.DisplayFor(modelItem => item.Name) </h4>
+                                        <button type="button" class="close" data-dismiss="modal" data-target="#myModal_@item.ID">&times;</button>
                                     </div>
                                     <!-- Modal body -->
                                     <div class="modal-body">
-                                        <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d3452.730970896326!2d31.3470918!3d30.0732451!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14583e0e903b0379%3A0x14f80c26f6487a97!2z2LPZitmG2YXYpyDYs9mK2KrZiiDYs9iq2KfYsdiy!5e0!3m2!1sar!2seg!4v1587624352901!5m2!1sar!2seg" width="470" height="350" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>                                    </div>
+                                        
+                                            <iframe src="@item.GoogleLocation" width="470" height="350" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+                                        
+                                    </div>
                                     <!-- Modal footer -->
                                     <div class="modal-footer">
-                                        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                                        <button type="button" class="btn btn-danger" data-dismiss="modal" data-target="#myModal_@item.ID">Close</button>
                                     </div>
                                 </div>
                             </div>
