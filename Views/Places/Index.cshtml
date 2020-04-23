@@ -1,63 +1,73 @@
 ﻿@model IEnumerable<GuideMe.Models.Business_models.Place>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Places";
 }
 
-<h2>Index</h2>
+<body>
+    <section class="dorne-listing-destinations-area section-padding-100-50" style="background-image: url(https://0i.is/lRz1); background-size: cover; background-repeat: no-repeat">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="section-heading dark text-center">
+                        <span></span>
+                        <h4>Places</h4>
+                    </div>
+                </div>
+            </div>
+            <div class="container-fluid">
+                <div class="row">
+                    @foreach (var item in Model)
+                    {
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.City.Name)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Category.Name)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Name)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Address)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.GoogleLocation)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Image)
-        </th>
-        <th></th>
-    </tr>
+                        <!-- Single Features Area -->
+                        <div class="col-4 col-sm-6 col-lg-4">
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.City.Name)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Category.Name)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Name)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Address)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.GoogleLocation)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Image)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.ID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.ID })
-        </td>
-    </tr>
-}
+                            <div class="single-features-area mb-50">
 
-</table>
+                                <img src="~/img/bg-img/feature-1.jpg" alt="">
+                                <!-- Rating & Map Area -->
+                                <div class="ratings-map-area d-flex">
+                                    <a href="#"> @Html.DisplayFor(modelItem => item.Category.Name)</a>
+                                    <a href="#myModal" data-toggle="modal"><img src="~/img/core-img/map.png" alt=""></a>
+                                </div>
+                                <div class="feature-content d-flex align-items-center justify-content-between">
+                                    <div class="feature-title">
+                                        <h5>@Html.DisplayFor(modelItem => item.Name)</h5>
+                                        <p>@Html.DisplayFor(modelItem => item.City.Name)</p>
+                                    </div>
+                                    <div class="feature-favourite">
+                                        <p><i class="fa fa-map-marker" aria-hidden="true"></i> @Html.DisplayFor(modelItem => item.Address)</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                        <!-- The Modal -->
+                        <div class="modal" id="myModal">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div style="height:50px"></div>
+                                    <!-- Modal Header -->
+                                    <div class="modal-header">
+                                        <h4 class="modal-title"> @Html.DisplayFor(modelItem => item.Name)</h4>
+                                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                    </div>
+                                    <!-- Modal body -->
+                                    <div class="modal-body">
+                                        <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d3452.730970896326!2d31.3470918!3d30.0732451!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14583e0e903b0379%3A0x14f80c26f6487a97!2z2LPZitmG2YXYpyDYs9mK2KrZiiDYs9iq2KfYsdiy!5e0!3m2!1sar!2seg!4v1587624352901!5m2!1sar!2seg" width="470" height="350" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>                                    </div>
+                                    <!-- Modal footer -->
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </section>
+
+</body>
+
