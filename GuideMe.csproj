@@ -178,13 +178,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202004212157468_SeedingPlaces.cs" />
-    <Compile Include="Migrations\202004212157468_SeedingPlaces.Designer.cs">
-      <DependentUpon>202004212157468_SeedingPlaces.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202004220025254_addedImageFiletToCity.cs" />
-    <Compile Include="Migrations\202004220025254_addedImageFiletToCity.Designer.cs">
-      <DependentUpon>202004220025254_addedImageFiletToCity.cs</DependentUpon>
+    <Compile Include="Migrations\202004221601222_placess.cs" />
+    <Compile Include="Migrations\202004221601222_placess.Designer.cs">
+      <DependentUpon>202004221601222_placess.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Business_models\Category.cs" />
@@ -405,11 +401,8 @@
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202004212157468_SeedingPlaces.resx">
-      <DependentUpon>202004212157468_SeedingPlaces.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202004220025254_addedImageFiletToCity.resx">
-      <DependentUpon>202004220025254_addedImageFiletToCity.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202004221601222_placess.resx">
+      <DependentUpon>202004221601222_placess.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
