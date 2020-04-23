@@ -1,0 +1,33 @@
+﻿@model GuideMe.ViewModels.RecomendationVM
+@{
+    ViewBag.Title = "Index";
+}
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+<h2>Recomendation</h2>
+
+@using (Html.BeginForm("FilteredPlaces", "Recomendation", FormMethod.Get))
+{
+    <div class="form-group">
+        @Html.Label("City")
+        @Html.DropDownList("CityID", ViewData["City"] as IEnumerable<SelectListItem>, new { @class = "custom-select form-control" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.Day, "Stay Duration")
+        @Html.TextBoxFor(m => m.Day) Days
+        @Html.ValidationMessageFor(m => m.Day, null, new { @class = "text-danger" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.Budget, "Your Budget")
+        @Html.TextBoxFor(m => m.Budget, new { min = 100, max = 1000000 }) LE
+        @Html.ValidationMessageFor(m => m.Budget, null, new { @class = "text-danger" })
+    </div>
+    <button type="submit" class="btn btn-block btn-info">Search</button>
+}
+

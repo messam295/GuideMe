@@ -8,7 +8,11 @@ using System.Web;
 
 namespace GuideMe.ViewModels
 {
-    
+    public class DbVM: ApplicationDbContext
+    {
+        
+    }
+
     public class CityCategoryVM
     {
         ApplicationDbContext Context = new ApplicationDbContext();
@@ -17,7 +21,13 @@ namespace GuideMe.ViewModels
         public IEnumerable<Category> GetCategories() => Context.Categories.ToList();
         public IEnumerable<Place> GetPlaces() => Context.Places.ToList();
         public IEnumerable<Service> GetServices() => Context.Services.ToList();
-        public IEnumerable<Price> GetPrices() => Context.Prices.ToList();
-        public IEnumerable<PlaceService> GetPlacesServices() => Context.PlaceServices.ToList();
+
+
+        public IEnumerable<Place> GetFilterdPlaces(int CityId, int CategoryId,int priceRange)
+        {
+            return Context.Prices.Where(p => p.price <= priceRange).Select(p => p.Place).Where(p=>p.CityID==CityId && p.CategoryID==CategoryId);
+        }
+
+        public int PriceRange { get; set; }
     }
 }

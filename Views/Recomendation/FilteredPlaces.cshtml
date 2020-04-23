@@ -1,0 +1,66 @@
+﻿@model GuideMe.ViewModels.RecomendationVM
+@{
+    ViewBag.Title = "FilteredPlaces";
+}
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+<h2>FilteredPlaces</h2>
+
+<table class="table table-hover">
+    <thead class="thead-dark">
+        <tr>
+            <th>Hotel Name</th>
+            <th>Hotel Price</th>
+            <th>Hotel Address</th>
+            <th>Hotel Google Map</th>
+        </tr>
+    </thead>
+    <tbody>
+        @{
+            foreach (var place in Model.Hotels)
+            {
+                <tr>
+                    <td>@place.Name</td>
+                    <td></td>
+                    <td>@place.Address</td>
+                    <td>@place.GoogleLocation</td>
+                </tr>
+            }
+        }
+    </tbody>
+</table>
+
+<table class="table table-hover">
+    <thead class="thead-dark">
+        <tr>
+            <th>Resurant Name</th>
+            <th>Resurant Price</th>
+            <th>Resurant Address</th>
+            <th>Resurant Google Map</th>
+        </tr>
+    </thead>
+    <tbody>
+        @{
+            foreach (var place in Model.Resturants)
+            {
+                <tr>
+                    <td>@place.Name</td>
+                    <td></td>
+                    <td>@place.Address</td>
+                    <td>@place.GoogleLocation</td>
+                </tr>
+            }
+        }
+    </tbody>
+</table>
+
+@using (Html.BeginForm("RecomendPlaces","Recomendation",FormMethod.Post))
+{
+    @Html.ActionLink("Use our Recomendation ?", "RecomendPlaces", Model, new { @class = "btn btn-block btn-info" })
+}
