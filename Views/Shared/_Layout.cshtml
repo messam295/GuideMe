@@ -4,20 +4,16 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title - GuideMe</title>
+
     <link rel="icon" type="image/x-icon" href="http://www.iconarchive.com/download/i85581/graphicloads/100-flat/home.ico">
-    <link href="~/Content/site.css" rel="stylesheet" />
-    <link href="~/Content/responsive.css" rel="stylesheet" />
-    <link href="~/Content/font-awesome.min.css" rel="stylesheet" />
     @Styles.Render("~/Content/css")
-    @Scripts.Render("~/bundles/modernizr")
+    @RenderSection("LoginStyles", required: false)
 
 </head>
 <body>
     <div id="preloader">
-            <div class="dorne-load"></div>
-        </div>
-
-
+        <div class="dorne-load"></div>
+    </div>
 
 
     <!-- ***** Search Form Area ***** -->
@@ -43,7 +39,7 @@
             <div class="row h-100">
                 <div class="col-12 h-100">
                     <nav class="h-100 navbar navbar-expand-lg">
-                        <p >
+                        <p>
                             @Html.ActionLink("GuideMe", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
                         </p>
                         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#dorneNav" aria-controls="dorneNav" aria-expanded="false" aria-label="Toggle navigation"><span class="fa fa-bars"></span></button>
@@ -121,6 +117,7 @@
 
 
     <script src="~/Scripts/jquery-2.2.4.min.js"></script>
+    @RenderSection("LoginScripts",required:false)
     <script src="~/Scripts/popper.min.js"></script>
     <script src="~/Scripts/bootstrap.min.js"></script>
     <script src="~/Scripts/plugins.js"></script>
@@ -128,5 +125,7 @@
     @*@Scripts.Render("~/bundles/jquery")
         @Scripts.Render("~/bundles/bootstrap")*@
     @RenderSection("scripts", required: false)
+    @Scripts.Render("~/bundles/modernizr")
+
 </body>
 </html>

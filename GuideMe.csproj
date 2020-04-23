@@ -213,6 +213,7 @@
     <Content Include="Content\pe-icon-7-stroke.css" />
     <Content Include="Content\responsive.css" />
     <Content Include="Content\site.css" />
+    <Content Include="Content\styleLogin.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\fontawesome-webfont.svg" />
     <Content Include="fonts\Pe-icon-7-stroke.svg" />
@@ -256,6 +257,8 @@
     <Content Include="img\core-img\icon-5.png" />
     <Content Include="img\core-img\logo.png" />
     <Content Include="img\core-img\map.png" />
+    <Content Include="img\Google.png" />
+    <Content Include="img\Pyra.png" />
     <Content Include="img\uploads\alex.jpg" />
     <Content Include="img\uploads\aswan.jpg" />
     <Content Include="img\uploads\cairo.jpg" />
@@ -300,6 +303,7 @@
     <Content Include="fonts\Pe-icon-7-stroke.eot" />
     <Content Include="fonts\Pe-icon-7-stroke.ttf" />
     <Content Include="fonts\Pe-icon-7-stroke.woff" />
+    <Content Include="fonts\Al-Nahar.ttf" />
     <None Include="Scripts\jquery-3.0.0-vsdoc.js" />
     <Content Include="Scripts\jquery-2.2.4.min.js" />
     <Content Include="Scripts\jquery-3.0.0.js" />
@@ -314,6 +318,7 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="Scripts\myscript.js" />
     <Content Include="Scripts\owl.carousel.js" />
     <Content Include="Scripts\owl.carousel.min.js" />
     <Content Include="Scripts\plugins.js" />
