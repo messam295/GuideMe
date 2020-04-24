@@ -16,34 +16,43 @@
                     </div>
                 </div>
                 <div class="container-fluid">
+                    @if (Request.IsAuthenticated && User.IsInRole("Admin"))
+                    {
+                        @Html.ActionLink("Create", "Create", null, new { @class = "btn btn-primary" })
+                    }
                     <div class="row">
-                        @foreach (var item in Model)
-                        {
+                            @foreach (var item in Model)
+                            {
 
-                            <!-- Single Features Area -->
-                            <div class="col-4 col-sm-6 col-lg-4">
+                                <!-- Single Features Area -->
+                                <div class="col-4 col-sm-6 col-lg-4">
 
-                                <div class="single-features-area mb-50">
+                                    <div class="single-features-area mb-50">
 
-                                    <img src="~/img/uploads/@item.Image" alt="@item.Name">
-                                    <!-- Price -->
-                                    <div class="price-start">
-                                        <p>
-                                            @Html.DisplayFor(modelItem => item.Name)
-                                        </p>
-                                    </div>
-                                    <div class="feature-content d-flex align-items-center justify-content-between">
-                                        <div class="feature-title">
-                                            <h5>@Html.DisplayFor(modelItem => item.Name)</h5>
+                                        <img src="~/img/uploads/@item.Image" alt="@item.Name">
+                                        <!-- Price -->
+                                        <div class="price-start">
+                                            <p>
+                                                @Html.DisplayFor(modelItem => item.Name)
+                                            </p>
                                         </div>
+                                        <div class="feature-content d-flex align-items-center justify-content-between">
+                                            <div class="feature-title">
+                                                <h5>@Html.DisplayFor(modelItem => item.Name)</h5>
+                                                @if (Request.IsAuthenticated && User.IsInRole("Admin"))
+                                                {
+                                                    @Html.ActionLink("Edit", "Edit", new { id = item.ID }, new { @class = "btn btn-warning" })
+                                                }
+                                            </div>
+                                        </div>
+
                                     </div>
 
                                 </div>
 
-                            </div>
-                        }
+                            }
+                        </div>
                     </div>
-                </div>
 
             </div>
 

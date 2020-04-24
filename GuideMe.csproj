@@ -48,6 +48,12 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="PagedList, Version=1.17.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
+      <HintPath>packages\PagedList.1.17.0.0\lib\net40\PagedList.dll</HintPath>
+    </Reference>
+    <Reference Include="PagedList.Mvc, Version=4.5.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
+      <HintPath>packages\PagedList.Mvc.4.5.0.0\lib\net40\PagedList.Mvc.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
@@ -205,6 +211,7 @@
     <Content Include="Content\font-awesome.min.css" />
     <Content Include="Content\magnific-popup.css" />
     <Content Include="Content\owl.carousel.min.css" />
+    <Content Include="Content\PagedList.css" />
     <Content Include="Content\pe-icon-7-stroke.css" />
     <Content Include="Content\responsive.css" />
     <Content Include="Content\site.css" />
@@ -256,15 +263,23 @@
     <Content Include="img\Pyra.png" />
     <Content Include="img\uploads\alex.jpg" />
     <Content Include="img\uploads\aswan.jpg" />
+    <Content Include="img\uploads\burger.jpg" />
     <Content Include="img\uploads\cairo.jpg" />
+    <Content Include="img\uploads\dominos.jpg" />
     <Content Include="img\uploads\elmoez.jpg" />
     <Content Include="img\uploads\giza.jpg" />
+    <Content Include="img\uploads\hardees.png" />
     <Content Include="img\uploads\hurghada.jpg" />
+    <Content Include="img\uploads\kadora.jpg" />
+    <Content Include="img\uploads\kfc.jpg" />
     <Content Include="img\uploads\library.jpg" />
     <Content Include="img\uploads\luxor.jpg" />
+    <Content Include="img\uploads\mac.png" />
     <Content Include="img\uploads\markato.jpg" />
     <Content Include="img\uploads\minahouse.jpg" />
     <Content Include="img\uploads\minia.jpg" />
+    <Content Include="img\uploads\papa.jpg" />
+    <Content Include="img\uploads\pizzahut.jpg" />
     <Content Include="img\uploads\qaitbay.jpg" />
     <Content Include="img\uploads\sharm.jpg" />
     <Content Include="Scripts\active.js" />

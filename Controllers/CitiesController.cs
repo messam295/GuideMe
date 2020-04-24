@@ -12,6 +12,7 @@ using GuideMe.Models.Identity_models;
 
 namespace GuideMe.Controllers
 {
+    [Authorize]
     public class CitiesController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
@@ -95,6 +96,7 @@ namespace GuideMe.Controllers
         // POST: Cities/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
+        [Authorize(Roles = "Admin")]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "ID,Name,Image")] City city)
@@ -109,6 +111,7 @@ namespace GuideMe.Controllers
         }
 
         // GET: Cities/Delete/5
+        [Authorize(Roles = "Admin")]
         public ActionResult Delete(int? id)
         {
             if (id == null)
@@ -124,6 +127,7 @@ namespace GuideMe.Controllers
         }
 
         // POST: Cities/Delete/5
+        [Authorize(Roles = "Admin")]
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)

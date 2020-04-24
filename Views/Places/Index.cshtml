@@ -1,5 +1,9 @@
-﻿@model IEnumerable<GuideMe.Models.Business_models.Place>
-@using System.Web;
+﻿@using System.Web;
+@using PagedList;
+@using PagedList.Mvc;
+
+@model IPagedList<GuideMe.Models.Business_models.Place>
+
 @{
     ViewBag.Title = "Places";
 }
@@ -9,13 +13,17 @@
         <div class="container">
             <div class="row">
                 <div class="col-12">
-                    <div class="section-heading text-center">
+                    <div class="section-heading dark text-center">
                         <span></span>
                         <h4>Places</h4>
                     </div>
                 </div>
             </div>
             <div class="container-fluid">
+                @if (Request.IsAuthenticated && User.IsInRole("Admin"))
+                {
+                    @Html.ActionLink("Create", "Create", null, new { @class = "btn btn-primary" })
+                }
                 <div class="row">
                     @foreach (var item in Model)
                     {
@@ -35,6 +43,10 @@
                                     <div class="feature-title">
                                         <h5>@Html.DisplayFor(modelItem => item.Name)</h5>
                                         <p>@Html.DisplayFor(modelItem => item.City.Name)</p>
+                                        @if (Request.IsAuthenticated && User.IsInRole("Admin"))
+                                        {
+                                            @Html.ActionLink("Edit", "Edit", new { id = item.ID }, new { @class = "btn btn-warning" })
+                                        }
                                     </div>
                                     <div class="feature-favourite">
                                         <p><i class="fa fa-map-marker" aria-hidden="true"></i> @Html.DisplayFor(modelItem => item.Address)</p>
@@ -55,14 +67,16 @@
                                     </div>
                                     <!-- Modal body -->
                                     <div class="modal-body">
-                                        @if(@item.GoogleLocation != null){
-												<iframe src="@item.GoogleLocation" width="470" height="350" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+                                        @if (@item.GoogleLocation != null && item.GoogleLocation != "")
+                                        {
+                                            <iframe src="@item.GoogleLocation" width="470" height="350" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
 
-										}
-										else{
-											<p>Sorry, There is no map location available for this place right now</p>
-										}
-                                        
+                                        }
+                                        else
+                                        {
+                                            <p>Sorry, There is no map location available for this place right now</p>
+                                        }
+
                                     </div>
                                     <!-- Modal footer -->
                                     <div class="modal-footer">
@@ -74,8 +88,14 @@
                     }
                 </div>
             </div>
+            @Html.PagedListPager(Model, page => Url.Action("Index", new { page }), new PagedListRenderOptions
+            {
+                Display = PagedListDisplayMode.IfNeeded,
+                DisplayItemSliceAndTotal = true,
+                LiElementClasses = new string[] { "btn" }
+            })
         </div>
-    </section>
+        </section>
 
 </body>
 

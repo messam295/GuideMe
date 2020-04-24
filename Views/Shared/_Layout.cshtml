@@ -46,35 +46,22 @@
                         <!-- Nav -->
                         <div class="collapse navbar-collapse" id="dorneNav">
                             <ul class="navbar-nav mr-auto" id="dorneMenu">
-                                <li class="nav-item active">
+                                <li class="nav-item @*active*@">
                                     <a class="nav-link" href="~/Home/Index">Home <span class="sr-only">(current)</span></a>
                                 </li>
-                                <li class="nav-item dropdown">
-                                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Explore <i class="fa fa-angle-down" aria-hidden="true"></i></a>
-                                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                        <a class="dropdown-item" href="index.html">Home</a>
-                                        <a class="dropdown-item" href="explore.html">Explore</a>
-                                        <a class="dropdown-item" href="listing.html">Listing</a>
-                                        <a class="dropdown-item" href="single-listing.html">Single Listing</a>
-                                        <a class="nav-link" href="~/Home/Contact">Home <span class="sr-only">(current)</span></a>
-                                    </div>
+                                
+                                <li class="nav-item ">
+                                    <a class="nav-link" href="~/Places/Index">Places</a>
                                 </li>
-                                <li class="nav-item dropdown">
-                                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown2" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Listings <i class="fa fa-angle-down" aria-hidden="true"></i></a>
-                                    <div class="dropdown-menu" aria-labelledby="navbarDropdown2">
-                                        <a class="dropdown-item" href="index.html">Home</a>
-                                        <a class="dropdown-item" href="explore.html">Explore</a>
-                                        <a class="dropdown-item" href="listing.html">Listing</a>
-                                        <a class="dropdown-item" href="single-listing.html">Single Listing</a>
+                                <li class="nav-item ">
+                                    <a class="nav-link" href="~/Cities/Index">Cities</a>
+                                </li>
 
-
-                                    </div>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="~/Recomendation/Index">Recomendation</a>
                                 </li>
                                 <li class="nav-item">
                                     <a class="nav-link" href="~/Home/Contact">Contact</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="~/Recomendation/Index">Recomendation</a>
                                 </li>
                                 @if (Request.IsAuthenticated && User.IsInRole("Admin"))
                                 {
@@ -84,16 +71,6 @@
                                         <div class="dropdown-menu" aria-labelledby="navbarDropdown3">
                                             <a class="dropdown-item" href="~/Account/CreateRole">Create Role</a>
                                             <a class="dropdown-item" href="~/Account/AddUserToRole">Add user to role</a>
-                                          
-                                        </div>
-                                    </li>
-
-                                    <li class="nav-item dropdown">
-                                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown3" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Places <i class="fa fa-angle-down" aria-hidden="true"></i></a>
-                                        <div class="dropdown-menu" aria-labelledby="navbarDropdown3">
-                                            <a class="dropdown-item" href="~/Places/Create">Create Place</a>
-                                            <a class="dropdown-item" href="~/Places/Edit">Edit Place</a>
-                                            <a class="dropdown-item" href="~/Places/Delete">Delete Place</a>
 
                                         </div>
                                     </li>
@@ -156,6 +133,19 @@
         @Scripts.Render("~/bundles/bootstrap")*@
     @RenderSection("scripts", required: false)
     @Scripts.Render("~/bundles/modernizr")
+    <script>
 
+        $(document).ready(function () {
+            debugger;
+            var navItems = document.getElementsByClassName("nav-item");
+            for (var i = 0; i < navItems.length - 1; i++) {
+                if (window.location.href.includes(navItems[i].firstElementChild.getAttribute("href"))) {
+                    navItems[i].className += " active";
+                    break;
+                }
+            }
+        });
+
+    </script>
 </body>
 </html>

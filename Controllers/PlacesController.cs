@@ -8,6 +8,8 @@ using System.Web;
 using System.Web.Mvc;
 using GuideMe.Models.Business_models;
 using GuideMe.Models.Identity_models;
+using PagedList;
+using PagedList.Mvc;
 
 namespace GuideMe.Controllers
 {
@@ -18,10 +20,10 @@ namespace GuideMe.Controllers
         private ApplicationDbContext db = new ApplicationDbContext();
 
         // GET: Places
-        public ActionResult Index()
+        public ActionResult Index(int? page)
         {
             var places = db.Places.Include(p => p.City).Include(p => p.Category);
-            return View(places.ToList());
+            return View(places.ToList().ToPagedList(page ?? 1 ,9));
         }
 
         // GET: Places/Details/5
