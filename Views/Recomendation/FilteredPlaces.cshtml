@@ -3,64 +3,139 @@
     ViewBag.Title = "FilteredPlaces";
 }
 
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
 
-<h2>FilteredPlaces</h2>
+<section class="dorne-listing-destinations-area section-padding-100-50" style="background-image: url(https://0i.is/lRz1); background-size: cover; background-repeat: no-repeat">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="section-heading text-center">
+                    <span></span>
+                    <h4>Our Recomendation</h4>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid">
+            <div class="row">
+                <h4>Hotel</h4>
 
-<table class="table table-hover">
-    <thead class="thead-dark">
-        <tr>
-            <th>Hotel Name</th>
-            <th>Hotel Price</th>
-            <th>Hotel Address</th>
-            <th>Hotel Google Map</th>
-        </tr>
-    </thead>
-    <tbody>
-        @{
-            foreach (var place in Model.Hotels)
-            {
-                <tr>
-                    <td>@place.Name</td>
-                    <td></td>
-                    <td>@place.Address</td>
-                    <td>@place.GoogleLocation</td>
-                </tr>
-            }
+                @foreach (var place in Model.Hotels)
+                {
+
+                    <!-- Single Features Area -->
+                    <div class="col-4 col-sm-6 col-lg-4">
+
+                        <div class="single-features-area mb-50">
+
+                            <img src="~/img/uploads/@place.Image" alt="@place.Name">
+                            <!-- Rating & Map Area -->
+                            <div class="ratings-map-area d-flex">
+                                <a href="#"> @place.Name</a>
+                                <a href="#" data-toggle="modal" data-target="#myModal_@place.ID"><img src="~/img/core-img/map.png" alt="@place.Name Location" title="@place.Name location"></a>
+                            </div>
+                            <div class="feature-content d-flex align-items-center justify-content-between">
+                                <div class="feature-title">
+                                    <h5><i class="fa fa-map-marker" aria-hidden="true"></i>  @place.Address</h5>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <!-- The Modal -->
+                    <div class="modal" id="myModal_@place.ID">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div style="height:50px"></div>
+                                <!-- Modal Header -->
+                                <div class="modal-header">
+                                    <h4 class="modal-title"> @Html.DisplayFor(modelItem => place.Name) </h4>
+                                    <button type="button" class="close" data-dismiss="modal" data-target="#myModal_@place.ID">&times;</button>
+                                </div>
+                                <!-- Modal body -->
+                                <div class="modal-body">
+                                    @if (@place.GoogleLocation != null)
+                                    {
+                                        <iframe src="@place.GoogleLocation" width="470" height="350" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+
+                                    }
+                                    else
+                                    {
+                                        <p>Sorry, There is no map location available for this place right now</p>
+                                    }
+
+                                </div>
+                                <!-- Modal footer -->
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-danger" data-dismiss="modal" data-target="#myModal_@place.ID">Close</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+            <hr />
+            <div class="row">
+                <h4>Resurant</h4>
+
+                @foreach (var place in Model.Resturants)
+                {
+
+                    <!-- Single Features Area -->
+                    <div class="col-4 col-sm-6 col-lg-4">
+
+                        <div class="single-features-area mb-50">
+
+                            <img src="~/img/uploads/@place.Image" alt="@place.Name">
+                            <!-- Rating & Map Area -->
+                            <div class="ratings-map-area d-flex">
+                                <a href="#"> @place.Name</a>
+                                <a href="#" data-toggle="modal" data-target="#myModal_@place.ID"><img src="~/img/core-img/map.png" alt="@place.Name Location" title="@place.Name location"></a>
+                            </div>
+                            <div class="feature-content d-flex align-items-center justify-content-between">
+                                <div class="feature-title">
+                                    <h5><i class="fa fa-map-marker" aria-hidden="true"></i>  @place.Address</h5>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <!-- The Modal -->
+                    <div class="modal" id="myModal_@place.ID">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div style="height:50px"></div>
+                                <!-- Modal Header -->
+                                <div class="modal-header">
+                                    <h4 class="modal-title"> @Html.DisplayFor(modelItem => place.Name) </h4>
+                                    <button type="button" class="close" data-dismiss="modal" data-target="#myModal_@place.ID">&times;</button>
+                                </div>
+                                <!-- Modal body -->
+                                <div class="modal-body">
+                                    @if (@place.GoogleLocation != null)
+                                    {
+                                        <iframe src="@place.GoogleLocation" width="470" height="350" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+
+                                    }
+                                    else
+                                    {
+                                        <p>Sorry, There is no map location available for this place right now</p>
+                                    }
+
+                                </div>
+                                <!-- Modal footer -->
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-danger" data-dismiss="modal" data-target="#myModal_@place.ID">Close</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+        @using (Html.BeginForm("RecomendPlaces", "Recomendation", FormMethod.Post))
+        {
+            @Html.ActionLink("Use our Recomendation ?", "RecomendPlaces", Model, new { @class = "btn btn-block btn-info" })
         }
-    </tbody>
-</table>
+    </div>
+</section>
 
-<table class="table table-hover">
-    <thead class="thead-dark">
-        <tr>
-            <th>Resurant Name</th>
-            <th>Resurant Price</th>
-            <th>Resurant Address</th>
-            <th>Resurant Google Map</th>
-        </tr>
-    </thead>
-    <tbody>
-        @{
-            foreach (var place in Model.Resturants)
-            {
-                <tr>
-                    <td>@place.Name</td>
-                    <td></td>
-                    <td>@place.Address</td>
-                    <td>@place.GoogleLocation</td>
-                </tr>
-            }
-        }
-    </tbody>
-</table>
 
-@using (Html.BeginForm("RecomendPlaces", "Recomendation", FormMethod.Post))
-{
-    @Html.ActionLink("Use our Recomendation ?", "RecomendPlaces", new { CityID = ViewBag.CityID, Day = ViewBag.Day, Budget = ViewBag.Budget }, new { @class = "btn btn-block btn-info" })
-}

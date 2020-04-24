@@ -1,0 +1,32 @@
+﻿@model IEnumerable<GuideMe.Models.Business_models.Place>
+
+
+<div class="col-12">
+    <div class="features-slides owl-carousel">
+
+        @foreach (var item in Model)
+        {
+            <!-- Single Features Area -->
+            <div class="single-features-area">
+                <img src="~/img/uploads/@item.Image" alt="">
+                <!-- Rating & Map Area -->
+                <div class="ratings-map-area d-flex">
+                    <a href="#">@item.Rate</a>
+                    <a href="#"><img src="~/img/core-img/map.png" alt=""></a>
+                </div>
+                <div class="feature-content d-flex align-items-center justify-content-between">
+                    <div class="feature-title">
+                        <h5>@item.Name</h5>
+                        <p>@item.Address</p>
+                    </div>
+                    <div class="feature-favourite">
+                        <a href="#"><i class="fa fa-heart-o" aria-hidden="true"></i></a>
+                    </div>
+                </div>
+            </div>
+        }
+
+
+    </div>
+</div>
+

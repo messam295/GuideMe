@@ -191,6 +191,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
     <Compile Include="ViewModels\CityCategoryVM.cs" />
+    <Compile Include="ViewModels\PlacePriceVM.cs" />
     <Compile Include="ViewModels\RecomendationVM.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -385,6 +386,7 @@
     <Content Include="Views\Home\GetFilterdPlaces.cshtml" />
     <Content Include="Views\Account\CreateRole.cshtml" />
     <Content Include="Views\Account\AddUserToRole.cshtml" />
+    <Content Include="Views\Home\_Restaurants.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

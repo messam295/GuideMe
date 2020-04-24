@@ -64,8 +64,16 @@ namespace GuideMe.Controllers
 
         public ActionResult _allPlaces()
         {
-            List<Place> places = ctx.Places.ToList();
-            return PartialView(places);
+            PlacePriceVM BigModel = new PlacePriceVM();
+            BigModel.PlaceList = ctx.Places.ToList();
+            BigModel.PriceList = ctx.Prices.ToList();
+            
+            return PartialView(BigModel);
+        }
+        public ActionResult _Restaurants()
+        {
+            List<Place> RestaurantsList = ctx.Places.Where(p => p.CategoryID == 5).ToList();
+            return PartialView(RestaurantsList);
         }
     }
 }
