@@ -1,0 +1,20 @@
+﻿@model GuideMe.Models.Identity_models.RoleViewModel
+
+@{
+    ViewBag.Title = "CreateRole";
+}
+
+<h2>Create Role</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.LabelFor(x => x.Name)
+    @Html.TextBoxFor(x => x.Name, new { @class = "form-control" })
+    @Html.ValidationMessageFor(x => x.Name,null, new { @class = "text-danger" })
+    <button type="submit" class="btn btn-success form-control">Save</button>
+}
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

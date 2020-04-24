@@ -299,7 +299,7 @@
 
         <div class="inputGroup inputGroup1">
             <label for="loginEmail" id="EmailLabel">Email</label>
-            @*<input type="email" id="Email" maxlength="254" />*@
+            
             @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
             @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })
             <p class="helper helper1">email@domain.com</p>

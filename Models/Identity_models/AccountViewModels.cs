@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using Microsoft.AspNet.Identity.EntityFramework;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
 namespace GuideMe.Models.Identity_models
@@ -10,6 +11,7 @@ namespace GuideMe.Models.Identity_models
         public string Email { get; set; }
     }
 
+    
     public class ExternalLoginListViewModel
     {
         public string ReturnUrl { get; set; }
@@ -49,8 +51,7 @@ namespace GuideMe.Models.Identity_models
     public class LoginViewModel
     {
         [Required]
-        [Display(Name = "Email")]
-        [EmailAddress]
+        [Display(Name = "Email"),EmailAddress]
         public string Email { get; set; }
 
         [Required]
@@ -64,6 +65,16 @@ namespace GuideMe.Models.Identity_models
 
     public class RegisterViewModel
     {
+        [Required]
+        [Display(Name = "Username")]
+        public string Username { get; set; }
+
+        [Required]
+        [StringLength(11,ErrorMessage ="Phone number must be 11 digits")]
+        [RegularExpression("^01[0|1|2|5][0-9]{8}$", ErrorMessage = "Phone number must start with [010-011-012-015]")]
+        [Display(Name = "Phone")]
+        public string Phone { get; set; }
+
         [Required]
         [EmailAddress]
         [Display(Name = "Email")]
@@ -109,4 +120,12 @@ namespace GuideMe.Models.Identity_models
         [Display(Name = "Email")]
         public string Email { get; set; }
     }
+
+    public class RoleViewModel 
+    {
+        [Required]
+        [Display(Name = "Role name")]
+        public string Name { get; set; }
+    }
+
 }

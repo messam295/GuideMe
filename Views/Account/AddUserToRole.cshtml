@@ -1,0 +1,19 @@
+﻿
+@{
+    ViewBag.Title = "AddUserToRole";
+}
+
+<h2>AddUserToRole</h2>
+
+@using (Html.BeginForm())
+{
+    <div class="form-group">
+        @Html.Label("Roles")
+        @Html.DropDownList("role", ViewData["Roles"] as IEnumerable<SelectListItem>, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        @Html.Label("Users")
+        @Html.DropDownList("userId", ViewData["Users"] as IEnumerable<SelectListItem>, new { @class = "form-control" })
+    </div>
+    <button type="submit" class="btn btn-success form-control">Save</button>
+}

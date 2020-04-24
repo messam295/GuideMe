@@ -383,6 +383,8 @@
     <Content Include="Views\Recomendation\Index.cshtml" />
     <Content Include="Views\Recomendation\RecomendPlaces.cshtml" />
     <Content Include="Views\Home\GetFilterdPlaces.cshtml" />
+    <Content Include="Views\Account\CreateRole.cshtml" />
+    <Content Include="Views\Account\AddUserToRole.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
