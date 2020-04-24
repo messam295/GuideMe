@@ -23,11 +23,26 @@ namespace GuideMe.ViewModels
             Random randomHotel = new Random();
             return Hotels[randomHotel.Next(Hotels.Count)];
         }
-        public Place GetRandomResturant(int cityID, int Day, int Budget)
+        public List<Place> GetRandomResturants(int cityID, int Day, int Budget)
         {
-            List<Place> Resturants = this.GetResturants(cityID, Day, Budget).ToList();
             Random randomResturant = new Random();
-            return Resturants[randomResturant.Next(Resturants.Count)];
+            List<int> indexes = new List<int>();
+            List<Place> Resturants = this.GetResturants(cityID, Day, Budget).ToList();
+            List<Place> newRestaurants = new List<Place>();
+            while(indexes.Count < Resturants.Count)
+            {
+                int randnum = randomResturant.Next(0,Resturants.Count);
+                if (!indexes.Contains(randnum))
+                {
+                    indexes.Add(randnum);
+                }
+            }
+            for (int i = 0; i < indexes.Count; i++)
+            {
+                newRestaurants.Add(Resturants[indexes[i]]);
+            }
+
+            return newRestaurants;
         }
 
         public List<Place> Resturants { get; set; }

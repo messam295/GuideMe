@@ -1,4 +1,5 @@
 ﻿@model GuideMe.ViewModels.RecomendationVM
+   @using GuideMe.Models.Business_models
 @{
     ViewBag.Title = "RecomendPlaces";
 }
@@ -25,10 +26,22 @@
     <br />
     <br />
     <h3>Resturants</h3>
-    for (int Day = 1; Day <= ViewBag.Day; Day++)
+
+
+    List<Place> rest = Model.GetRandomResturants(ViewBag.CityID, ViewBag.Day, ViewBag.Budget);
+    if (ViewBag.Day > rest.Count)
+    {
+        for (int i = rest.Count , j=0; i < ViewBag.Day; i++,j++)
+        {
+            rest.Add(rest[j]);
+        }
+    }
+
+
+    for (int Day = 0; Day < ViewBag.Day; Day++)
     {
         <div>
-            <h5>Day @Day : @Model.GetRandomResturant(ViewBag.CityID, ViewBag.Day, ViewBag.Budget).Name</h5>
+            <h5>Day @Html.Label((Day+1).ToString()) : @rest[Day].Name  with average price of @Model.GetPrice(rest[Day].ID).price </h5>
         </div>
     }
 }

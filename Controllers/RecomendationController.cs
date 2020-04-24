@@ -8,7 +8,7 @@ using System.Web;
 using System.Web.Mvc;
 
 namespace GuideMe.Controllers
-{
+{   [Authorize]
     public class RecomendationController : Controller
     {
         ApplicationDbContext Context = new ApplicationDbContext();

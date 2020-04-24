@@ -65,8 +65,9 @@ namespace GuideMe.Models.Identity_models
 
     public class RegisterViewModel
     {
+
         [Required]
-        [Display(Name = "Username")]
+        //[Display(Name = "Username"),StringLength(5 ,ErrorMessage ="Username is too short")]
         public string Username { get; set; }
 
         [Required]

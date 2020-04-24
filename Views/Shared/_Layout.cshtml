@@ -17,7 +17,7 @@
 
 
     <!-- ***** Search Form Area ***** -->
-    <div class="dorne-search-form d-flex align-items-center">
+    @*<div class="dorne-search-form d-flex align-items-center">
         <div class="container">
             <div class="row">
                 <div class="col-12">
@@ -31,7 +31,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div>*@
 
     <!-- ***** Header Area Start ***** -->
     <header class="header_area bg-img bg-overlay" id="header" style="background-image: url(img/bg-img/hero-1.jpg);font-family: 'akgfont'">
@@ -73,11 +73,28 @@
                                 <li class="nav-item">
                                     <a class="nav-link" href="~/Home/Contact">Contact</a>
                                 </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="~/Recomendation/Index">Recomendation</a>
+                                </li>
+                                @if (Request.IsAuthenticated && User.IsInRole("Admin"))
+                                {
+
+                                    <li class="nav-item dropdown">
+                                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown3" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> User Roles <i class="fa fa-angle-down" aria-hidden="true"></i></a>
+                                        <div class="dropdown-menu" aria-labelledby="navbarDropdown3">
+                                            <a class="dropdown-item" href="~/Account/CreateRole">Create Role</a>
+                                            <a class="dropdown-item" href="~/Account/AddUserToRole">Add user to role</a>
+                                          
+                                        </div>
+                                    </li>
+
+                                }
+
                             </ul>
                             <!-- Search btn -->
-                            <div class="dorne-search-btn">
+                            @*<div class="dorne-search-btn">
                                 <a id="search-btn" href="#"><i class="fa fa-search" aria-hidden="true"></i> Search</a>
-                            </div>
+                            </div>*@
                             <!-- Signin btn -->
                             <div>
                                 @Html.Partial("_LoginPartial")

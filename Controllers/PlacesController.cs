@@ -11,6 +11,7 @@ using GuideMe.Models.Identity_models;
 
 namespace GuideMe.Controllers
 {
+    [Authorize]
     [RequireHttps]
     public class PlacesController : Controller
     {
@@ -37,7 +38,7 @@ namespace GuideMe.Controllers
             }
             return View(place);
         }
-
+        [Authorize(Roles ="Admin")]
         // GET: Places/Create
         public ActionResult Create()
         {
@@ -49,6 +50,7 @@ namespace GuideMe.Controllers
         // POST: Places/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
+        [Authorize(Roles ="Admin")]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "ID,Name,CategoryID,CityID,Address,GoogleLocation,Image")] Place place)
@@ -66,6 +68,7 @@ namespace GuideMe.Controllers
         }
 
         // GET: Places/Edit/5
+        [Authorize(Roles = "Admin")]
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -85,6 +88,7 @@ namespace GuideMe.Controllers
         // POST: Places/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
+        [Authorize(Roles ="Admin")]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "ID,Name,CategoryID,CityID,Address,GoogleLocation,Image")] Place place)
@@ -100,6 +104,7 @@ namespace GuideMe.Controllers
             return View(place);
         }
 
+        [Authorize(Roles ="Admin")]
         // GET: Places/Delete/5
         public ActionResult Delete(int? id)
         {
@@ -115,6 +120,7 @@ namespace GuideMe.Controllers
             return View(place);
         }
 
+        [Authorize(Roles = "Admin")]
         // POST: Places/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]

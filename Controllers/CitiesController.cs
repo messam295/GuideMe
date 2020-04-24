@@ -37,6 +37,7 @@ namespace GuideMe.Controllers
             return View(city);
         }
 
+        [Authorize(Roles ="Admin")]
         // GET: Cities/Create
         public ActionResult Create()
         {
@@ -46,6 +47,7 @@ namespace GuideMe.Controllers
         // POST: Cities/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
+        [Authorize(Roles ="Admin")]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "ID,Name,Image,ImageFile")] City city)
@@ -73,6 +75,7 @@ namespace GuideMe.Controllers
 
             return View(city);
         }
+        [Authorize(Roles = "Admin")]
 
         // GET: Cities/Edit/5
         public ActionResult Edit(int? id)
