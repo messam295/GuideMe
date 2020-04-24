@@ -8,13 +8,25 @@
 
 @using (Html.BeginForm())
 {
-    @Html.ValidationSummary(false,ViewBag.CreationResult as string,new { @class = "text-danger"})
+    @Html.ValidationSummary(false, ViewBag.CreationResult as string, new { @class = "text-danger" })
     @Html.LabelFor(x => x.Name)
     @Html.TextBoxFor(x => x.Name, new { @class = "form-control" })
-    <button type="submit" class="btn btn-success form-control">Save</button>
+    <button type="submit" id="submit" class="btn btn-success form-control">Save</button>
 }
 
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
+
+    @if (ViewBag.CreationResult != null)
+    {
+        <script>
+            $(document).ready(function () {
+                alert("@ViewBag.CreationResult");
+            });
+        </script>
+        
+    }
+
+    
 }
