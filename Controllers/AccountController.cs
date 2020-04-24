@@ -435,29 +435,24 @@ namespace GuideMe.Controllers
 
                 if (Result.Succeeded)
                 {
-                    Output = "the role created";
+                    Output = $"{role.Name} role created";
                 }
                 else
                 {
-                    int ErrorCount = Result.Errors.Count();
-                    Output = "Errors is: " + Result.Errors.ToList()[0];
+                    for (int i = 0; i < Result.Errors.Count(); i++)
+                    {
+                        Output += Result.Errors.ElementAt(i) + "-";
+                    }
                 }
             }
             else
             {
-                Output = "the roles exist";
+                Output = $"{role.Name} role exist";
             }
 
-            if (Output == "")
-            {
-                ModelState.AddModelError(string.Empty, "tesssst");
-                return View(role);
-            }
-            else
-            {
-                return RedirectToAction("Index", "Home");
-            }
-
+            ViewBag.CreationResult = Output;
+            
+            return View(role);
         }
 
         [Authorize(Roles ="Admin")]

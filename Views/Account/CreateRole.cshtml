@@ -8,9 +8,9 @@
 
 @using (Html.BeginForm())
 {
+    @Html.ValidationSummary(false,ViewBag.CreationResult as string,new { @class = "text-danger"})
     @Html.LabelFor(x => x.Name)
     @Html.TextBoxFor(x => x.Name, new { @class = "form-control" })
-    @Html.ValidationMessageFor(x => x.Name,null, new { @class = "text-danger" })
     <button type="submit" class="btn btn-success form-control">Save</button>
 }
 
