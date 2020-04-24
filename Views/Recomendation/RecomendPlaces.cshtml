@@ -3,5 +3,32 @@
     ViewBag.Title = "RecomendPlaces";
 }
 
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+
 <h2>RecomendPlaces</h2>
 
+@{
+    <h3>Hotels</h3>
+    for (int Day = 1; Day <= ViewBag.Day; Day++)
+    {
+        <div>
+            <h5>Day @Day : @Model.GetRandomHotel(ViewBag.CityID, ViewBag.Day, ViewBag.Budget).Name</h5>
+        </div>
+    }
+    <br />
+    <br />
+    <br />
+    <br />
+    <h3>Resturants</h3>
+    for (int Day = 1; Day <= ViewBag.Day; Day++)
+    {
+        <div>
+            <h5>Day @Day : @Model.GetRandomResturant(ViewBag.CityID, ViewBag.Day, ViewBag.Budget).Name</h5>
+        </div>
+    }
+}

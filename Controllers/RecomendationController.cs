@@ -26,12 +26,20 @@ namespace GuideMe.Controllers
             RecomendationVM recomendationVM = new RecomendationVM();
             recomendationVM.Hotels = recomendationVM.GetHotels(CityID,Day, Budget).ToList();
             recomendationVM.Resturants = recomendationVM.GetResturants(CityID,Day, Budget).ToList();
-
+            ViewBag.CityID = CityID;
+            ViewBag.Day = Day;
+            ViewBag.Budget = Budget;
             return View(recomendationVM);
         }
 
-        public ActionResult RecomendPlaces(RecomendationVM recomendationVM)
+        public ActionResult RecomendPlaces(int CityID, int Day, int Budget)
         {
+            ViewBag.CityID = CityID;
+            ViewBag.Day = Day;
+            ViewBag.Budget = Budget;
+            RecomendationVM recomendationVM = new RecomendationVM();
+            recomendationVM.Day = Day;
+            recomendationVM.Budget = Budget;
             return View(recomendationVM);
         }
     }

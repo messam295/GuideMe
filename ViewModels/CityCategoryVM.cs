@@ -8,11 +8,6 @@ using System.Web;
 
 namespace GuideMe.ViewModels
 {
-    public class DbVM: ApplicationDbContext
-    {
-        
-    }
-
     public class CityCategoryVM
     {
         ApplicationDbContext Context = new ApplicationDbContext();
