@@ -72,7 +72,7 @@ namespace GuideMe.Controllers
         }
         public ActionResult _Restaurants()
         {
-            List<Place> RestaurantsList = ctx.Places.Where(p => p.CategoryID == 5).ToList();
+            List<Place> RestaurantsList = ctx.Places.Where(p => p.CategoryID == 2).OrderByDescending(r=>r.Rate).ToList();
             return PartialView(RestaurantsList);
         }
     }

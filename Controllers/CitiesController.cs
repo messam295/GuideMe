@@ -55,21 +55,30 @@ namespace GuideMe.Controllers
         public ActionResult Create([Bind(Include = "ID,Name,Image,ImageFile")] City city)
         {
             city.ID = db.Cities.Select(c => c.ID).Max() + 1;
-            
-                if (city.ImageFile != null && city.ImageFile.ContentLength > 0)
-                    try
-                    {
-                        string path = Path.Combine(Server.MapPath("~/img/uploads"),
-                                                    Path.GetFileName(city.ImageFile.FileName));
-                        city.ImageFile.SaveAs(path);
-                        city.Image = city.ImageFile.FileName;
+            var allowedExtensions = new[] { ".jpg", ".jpeg", ".png" };
 
-                    }
-                    catch (Exception ex)
-                    {
-                        ViewBag.Message = "ERROR:" + ex.Message.ToString();
-                    }
+            if (city.ImageFile != null && city.ImageFile.ContentLength > 0) {
+                var fileExtension = Path.GetExtension(city.ImageFile.FileName).ToLower();
 
+                try
+                {
+                    foreach (var ext in allowedExtensions)
+                    {
+                        if (ext.Contains(fileExtension))
+                        {
+                            string path = Path.Combine(Server.MapPath("~/img/uploads"),
+                                                            Path.GetFileName(city.ImageFile.FileName));
+                            city.ImageFile.SaveAs(path);
+                            city.Image = city.ImageFile.FileName;
+                            break;
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    ViewBag.Message = "ERROR:" + ex.Message.ToString();
+                }
+            }
                 db.Cities.Add(city);
                 db.SaveChanges();
                 return RedirectToAction("Index");

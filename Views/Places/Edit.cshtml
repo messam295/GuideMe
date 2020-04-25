@@ -68,7 +68,7 @@
                     @Html.Label("place Image", new { @class = "control-label" })
                     <div class="col-md-10">
 
-                        @Html.TextBoxFor(m => m.ImageFile, new { type = "file" })
+                        @Html.TextBoxFor(m => m.ImageFile, new { type = "file" , accept=".png,.jpg,.jpeg" })
                         @Html.ValidationMessageFor(m => m.ImageFile)
                     </div>
 

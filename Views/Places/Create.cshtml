@@ -70,9 +70,9 @@
                     @Html.Label("place Image", new { @class = "control-label" })
                     <div class="col-md-10">
 
-                        @Html.TextBoxFor(m => m.ImageFile, new { type = "file" })
+                        @Html.TextBoxFor(m => m.ImageFile, new { id = "upload",type = "file", accept = ".png,.jpg,.jpeg" })
                         @Html.ValidationMessageFor(m => m.ImageFile)
-                     </div>
+                    </div>
 
                     </div>
 
@@ -86,7 +86,7 @@
 
                     <div class="form-group">
                         <div class="col-md-offset-2 col-md-10">
-                            <button type="submit" value="Create" class="btn dorne-btn mt-50 bg-white text-dark"><i class="fa fa-plus-circle" aria-hidden="true"></i> Create</button>
+                            <button id="submit" type="submit" value="Create" class="btn dorne-btn mt-50 bg-white text-dark"><i class="fa fa-plus-circle" aria-hidden="true"></i> Create</button>
                         </div>
                     </div>
                     <div>
@@ -107,6 +107,17 @@
 
     @section Scripts {
         @Scripts.Render("~/bundles/jqueryval")
+        @*<script>
+            document.getElementById("submit").onclick = function () {
+                debugger;
+                var filename = document.getElementById("upload").value.toLowerCase();
+                var re = /(\.jpg|\.jpeg|\.png)$/i;
+                if (!re.exec(filename)) {
+                    alert("File extension not supported!");
+                }
+
+            }
+        </script>*@
     }
 
 

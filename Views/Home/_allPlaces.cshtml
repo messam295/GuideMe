@@ -22,7 +22,7 @@
                     <div class="price-start">
                         @*<p>FROM $59/night</p>*@
 
-                        <p>@Model.PriceList.Where(pr => pr.PlaceID == PublicItem.ID).FirstOrDefault().price EGP</p>
+                        <p> @Model.PriceList.Where(pr => pr.PlaceID == PublicItem.ID).FirstOrDefault().price EGP / @Model.PriceList.Where(pr => pr.PlaceID == PublicItem.ID).FirstOrDefault().Description.Replace("Price For","").Replace("Average Price for","").Replace("Price","")</p>
 
 
 
@@ -35,9 +35,9 @@
 
 
                         </div>
-                        <div class="feature-favourite">
+                        @*<div class="feature-favourite">
                             <a href="#"><i class="fa fa-heart-o" aria-hidden="true"></i></a>
-                        </div>
+                        </div>*@
                     </div>
                 </div>
             }
