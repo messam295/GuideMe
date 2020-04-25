@@ -9,17 +9,22 @@
             <div class="container">
                 <div class="row">
                     <div class="col-12">
-                        <div class="section-heading text-center">
+                        <div class="section-heading dark text-center">
                             <span></span>
                             <h4>Cities</h4>
                         </div>
                     </div>
                 </div>
                 <div class="container-fluid">
-                    @if (Request.IsAuthenticated && User.IsInRole("Admin"))
-                    {
-                        @Html.ActionLink("Create", "Create", null, new { @class = "btn btn-primary" })
-                    }
+                    <div class="row">
+                        <div class="col-5">
+
+                        </div>
+                        @if (Request.IsAuthenticated && User.IsInRole("Admin"))
+                        {
+                            @Html.ActionLink("Create", "Create", null, new { @class = "btn btn-primary col-2" })
+                        }
+                    </div>
                     <div class="row">
                             @foreach (var item in Model)
                             {
@@ -42,6 +47,7 @@
                                                 @if (Request.IsAuthenticated && User.IsInRole("Admin"))
                                                 {
                                                     @Html.ActionLink("Edit", "Edit", new { id = item.ID }, new { @class = "btn btn-warning" })
+                                                    @Html.ActionLink("Delete", "Delete", new { id = item.ID }, new { @class = "btn btn-danger" })
                                                 }
                                             </div>
                                         </div>

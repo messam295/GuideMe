@@ -6,12 +6,13 @@ using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Web;
 
 namespace GuideMe.Models.Business_models
 {
     public class Place
     {
-        private double rate = 10;
+        private double rate = 5;
 
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.None)]
@@ -36,8 +37,11 @@ namespace GuideMe.Models.Business_models
 
         public string Image { get; set; }
 
+        [NotMapped]
+        public HttpPostedFileBase ImageFile { get; set; }
+
         public Category Category { get; set; }
-        [Range(0, 10)]
+        [Range(0, 5)]
         public double Rate { get { return rate; } set { rate = value; } }
         public City City { get; set; }
 

@@ -42,6 +42,7 @@ namespace GuideMe.Controllers
         // GET: Cities/Create
         public ActionResult Create()
         {
+           
             return View();
         }
 
@@ -53,8 +54,8 @@ namespace GuideMe.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "ID,Name,Image,ImageFile")] City city)
         {
-            if (ModelState.IsValid)
-            {
+            city.ID = db.Cities.Select(c => c.ID).Max() + 1;
+            
                 if (city.ImageFile != null && city.ImageFile.ContentLength > 0)
                     try
                     {
@@ -72,9 +73,7 @@ namespace GuideMe.Controllers
                 db.Cities.Add(city);
                 db.SaveChanges();
                 return RedirectToAction("Index");
-            }
-
-            return View(city);
+       
         }
         [Authorize(Roles = "Admin")]
 
@@ -99,10 +98,32 @@ namespace GuideMe.Controllers
         [Authorize(Roles = "Admin")]
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ID,Name,Image")] City city)
+        public ActionResult Edit([Bind(Include = "ID,Name,Image,ImageFile")] City city)
         {
+
+            
             if (ModelState.IsValid)
             {
+                var oldImg = db.Cities.AsNoTracking().Where(P => P.ID == city.ID).FirstOrDefault().Image;
+                if (city.ImageFile != null && city.ImageFile.ContentLength > 0)
+                    try
+                    {
+                        //saving new img
+                        string newPath = Path.Combine(Server.MapPath("~/img/uploads"),
+                                                    Path.GetFileName(city.ImageFile.FileName));
+                        city.ImageFile.SaveAs(newPath);
+                        city.Image = city.ImageFile.FileName;
+
+                        //deleting old img
+                        string oldPath = Path.Combine(Server.MapPath("~/img/uploads"),
+                                                    Path.GetFileName(oldImg));
+                        System.IO.File.Delete(oldPath);
+                    }
+                    catch (Exception ex)
+                    {
+                        ViewBag.Message = "ERROR:" + ex.Message.ToString();
+                    }
+
                 db.Entry(city).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -133,6 +154,10 @@ namespace GuideMe.Controllers
         public ActionResult DeleteConfirmed(int id)
         {
             City city = db.Cities.Find(id);
+
+            string imgPath = Path.Combine(Server.MapPath("~/img/uploads"),
+                                        Path.GetFileName(city.Image));
+            System.IO.File.Delete(imgPath);
             db.Cities.Remove(city);
             db.SaveChanges();
             return RedirectToAction("Index");

@@ -2,95 +2,90 @@
 @{
     ViewBag.Title = "Delete";
 }
-<section style="background-image:url(https://0i.is/A94Z);background-size:cover">
-    <h2 style="text-align:center">Delete</h2>
+    <section style="background-image:url(https://0i.is/A94Z);background-size:cover">
+        <h2 style="text-align:center">Delete</h2>
 
 
-    @using (Html.BeginForm())
-    {
-        @Html.AntiForgeryToken()
+        @using (Html.BeginForm("Delete", "Places", FormMethod.Post))
+        {
+            @Html.AntiForgeryToken()
 
-        <h4 style="text-align:center">Place</h4>
-        <hr />
-        <div class="container h-100">
-            <div class="row h-100 justify-content-center align-items-center">
-                <div class="explore-search-form">
-                    <!-- Tabs Content -->
-                    
-
-                    <h3>Are you sure you want to delete this?</h3>
-                    <div>
-                        <h4>Place</h4>
-                        <hr />
-                        <dl class="dl-horizontal">
-                            <dt>
-                                @Html.DisplayNameFor(model => model.City.Name)
-                            </dt>
-
-                            <dd>
-                                @Html.DisplayFor(model => model.City.Name)
-                            </dd>
-
-                            <dt>
-                                @Html.DisplayNameFor(model => model.Category.Name)
-                            </dt>
-
-                            <dd>
-                                @Html.DisplayFor(model => model.Category.Name)
-                            </dd>
-
-                            <dt>
-                                @Html.DisplayNameFor(model => model.Name)
-                            </dt>
-
-                            <dd>
-                                @Html.DisplayFor(model => model.Name)
-                            </dd>
-
-                            <dt>
-                                @Html.DisplayNameFor(model => model.Address)
-                            </dt>
-
-                            <dd>
-                                @Html.DisplayFor(model => model.Address)
-                            </dd>
-
-                            <dt>
-                                @Html.DisplayNameFor(model => model.GoogleLocation)
-                            </dt>
-
-                            <dd>
-                                @Html.DisplayFor(model => model.GoogleLocation)
-                            </dd>
-
-                            <dt>
-                                @Html.DisplayNameFor(model => model.Image)
-                            </dt>
-
-                            <dd>
-                                @Html.DisplayFor(model => model.Image)
-                            </dd>
-
-                        </dl>
+            <h4 style="text-align:center">Place</h4>
+            <hr />
+            <div class="container h-100">
+                <div class="row h-100 justify-content-center align-items-center">
+                    <div class="explore-search-form">
+                        <!-- Tabs Content -->
 
 
+                        <h3>Are you sure you want to delete this?</h3>
+                        <div>
+                            <h4>Place</h4>
+                            <hr />
+                            <dl class="dl-horizontal">
+                                <dt>
+                                    @Html.DisplayNameFor(model => model.City.Name)
+                                </dt>
 
-                        @using (Html.BeginForm())
-                        {
-                            @Html.AntiForgeryToken()
+                                <dd>
+                                    @Html.DisplayFor(model => model.City.Name)
+                                </dd>
+
+                                <dt>
+                                    @Html.DisplayNameFor(model => model.Category.Name)
+                                </dt>
+
+                                <dd>
+                                    @Html.DisplayFor(model => model.Category.Name)
+                                </dd>
+
+                                <dt>
+                                    @Html.DisplayNameFor(model => model.Name)
+                                </dt>
+
+                                <dd>
+                                    @Html.DisplayFor(model => model.Name)
+                                </dd>
+
+                                <dt>
+                                    @Html.DisplayNameFor(model => model.Address)
+                                </dt>
+
+                                <dd>
+                                    @Html.DisplayFor(model => model.Address)
+                                </dd>
+
+                                <dt>
+                                    @Html.DisplayNameFor(model => model.GoogleLocation)
+                                </dt>
+
+                                <dd>
+                                    @Html.DisplayFor(model => model.GoogleLocation)
+                                </dd>
+
+                                <dt>
+                                    @Html.DisplayNameFor(model => model.Image)
+                                </dt>
+
+                                <dd>
+                                    @Html.DisplayFor(model => model.Image)
+                                </dd>
+
+                            </dl>
+
 
                             <div class="form-actions no-color">
                                 <input type="submit" value="Delete" class="btn btn-default" /> |
                                 @Html.ActionLink("Back to List", "Index")
                             </div>
-                        }
+
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
-    }
-    <br />
-</section>
+        }
+        <br />
+    </section>
 
 
 

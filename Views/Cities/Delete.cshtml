@@ -6,7 +6,7 @@
     <h2 style="text-align:center">Delete</h2>
 
 
-    @using (Html.BeginForm())
+    @using (Html.BeginForm("delete","cities",FormMethod.Post))
     {
         @Html.AntiForgeryToken()
 
@@ -31,25 +31,13 @@
                                 @Html.DisplayFor(model => model.Name)
                             </dd>
 
-                            <dt>
-                                @Html.DisplayNameFor(model => model.Image)
-                            </dt>
-
-                            <dd>
-                                @Html.DisplayFor(model => model.Image)
-                            </dd>
-
                         </dl>
-
-                        @using (Html.BeginForm())
-                        {
-                            @Html.AntiForgeryToken()
 
                             <div class="form-actions no-color">
                                 <input type="submit" value="Delete" class="btn btn-default" /> |
-                                @Html.ActionLink("Back to List", "Index")
+                                @Html.ActionLink("Back to List", "Index",null,new { @class  = "btn btn-danger"})
                             </div>
-                        }
+                        
                     </div>
                 </div>
             </div>
