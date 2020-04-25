@@ -261,6 +261,8 @@
     <Content Include="img\core-img\map.png" />
     <Content Include="img\Google.png" />
     <Content Include="img\Pyra.png" />
+    <Content Include="img\role.jpg" />
+    <Content Include="img\roles.png" />
     <Content Include="img\uploads\alex.jpg" />
     <Content Include="img\uploads\aswan.jpg" />
     <Content Include="img\uploads\blue_paradise_hotel.jpg" />
