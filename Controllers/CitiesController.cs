@@ -101,23 +101,26 @@ namespace GuideMe.Controllers
         public ActionResult Edit([Bind(Include = "ID,Name,Image,ImageFile")] City city)
         {
 
-            
             if (ModelState.IsValid)
             {
-                var oldImg = db.Cities.AsNoTracking().Where(P => P.ID == city.ID).FirstOrDefault().Image;
+                var oldCityobj = db.Cities.AsNoTracking().Where(P => P.ID == city.ID).FirstOrDefault();
                 if (city.ImageFile != null && city.ImageFile.ContentLength > 0)
                     try
                     {
+
+                        if (oldCityobj.Image != null)
+                        {
+                            //deleting old img
+                            string oldPath = Path.Combine(Server.MapPath("~/img/uploads"),
+                                                        Path.GetFileName(oldCityobj.Image));
+                            System.IO.File.Delete(oldPath);
+                        }
                         //saving new img
                         string newPath = Path.Combine(Server.MapPath("~/img/uploads"),
                                                     Path.GetFileName(city.ImageFile.FileName));
                         city.ImageFile.SaveAs(newPath);
                         city.Image = city.ImageFile.FileName;
 
-                        //deleting old img
-                        string oldPath = Path.Combine(Server.MapPath("~/img/uploads"),
-                                                    Path.GetFileName(oldImg));
-                        System.IO.File.Delete(oldPath);
                     }
                     catch (Exception ex)
                     {
@@ -154,10 +157,12 @@ namespace GuideMe.Controllers
         public ActionResult DeleteConfirmed(int id)
         {
             City city = db.Cities.Find(id);
-
-            string imgPath = Path.Combine(Server.MapPath("~/img/uploads"),
-                                        Path.GetFileName(city.Image));
-            System.IO.File.Delete(imgPath);
+            if (city.Image != null)
+            {
+                string imgPath = Path.Combine(Server.MapPath("~/img/uploads"),
+                                            Path.GetFileName(city.Image));
+                System.IO.File.Delete(imgPath);
+            }
             db.Cities.Remove(city);
             db.SaveChanges();
             return RedirectToAction("Index");

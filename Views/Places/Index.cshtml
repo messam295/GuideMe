@@ -20,10 +20,15 @@
                 </div>
             </div>
             <div class="container-fluid">
-                @if (Request.IsAuthenticated && User.IsInRole("Admin"))
-                {
-                    @Html.ActionLink("Create", "Create", null, new { @class = "btn btn-primary" })
-                }
+                <div class="row">
+                    <div class="col-5">
+
+                    </div>
+                    @if (Request.IsAuthenticated && User.IsInRole("Admin"))
+                    {
+                        @Html.ActionLink("Create", "Create", null, new { @class = "btn btn-primary col-2" })
+                    }
+                </div>
                 <div class="row">
                     @foreach (var item in Model)
                     {
