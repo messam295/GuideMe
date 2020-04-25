@@ -133,7 +133,7 @@
         </div>
         @using (Html.BeginForm("RecomendPlaces", "Recomendation", FormMethod.Post))
         {
-            @Html.ActionLink("Use our Recomendation ?", "RecomendPlaces", Model, new { @class = "btn btn-block btn-info" })
+            @Html.ActionLink("Use our Recomendation ?", "RecomendPlaces", new { CityID = ViewBag.CityID, Day = ViewBag.Day, Budget = ViewBag.Budget }, new { @class = "btn btn-block btn-info" })
         }
     </div>
 </section>
